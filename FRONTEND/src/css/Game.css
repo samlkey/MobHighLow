@@ -1,0 +1,87 @@
+.game-container {
+  margin-top: 95px; /* Adjust to match the banner height */
+  height: calc(100vh - 200px);
+  min-height: 0;
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.game-container button {
+  width: 500px;
+  min-width: 200px;
+  max-width: 150vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #ffe066 0%, #ffd700 60%, #b8860b 100%);
+  color: #3a2600;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.75rem 2.5rem;
+  border: 3px solid #6b4f1d;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 0 #6b4f1d, 0 8px 24px #000a;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 0 #fffbe6, 0 0 6px #fffbe6;
+  transition: transform 0.08s, box-shadow 0.15s, background 0.2s;
+  outline: none;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.game-container button:active {
+  top: 2px;
+  box-shadow: 0 2px 0 #6b4f1d, 0 4px 12px #000a;
+}
+
+.game-container button:hover, .game-container button:focus {
+  background: linear-gradient(180deg, #fffbe6 0%, #ffd700 80%, #b8860b 100%);
+  color: #6b4f1d;
+  box-shadow: 0 6px 0 #6b4f1d, 0 12px 32px #000c;
+  transform: scale(1.03);
+}
+
+.game-box {
+  background: #232526e5;
+  border: 2.5px solid #FFD700;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.699);
+  padding: 20rem 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.game-box > *:last-child {
+  margin-bottom: 0;
+}
+  
+@media (max-width: 600px) {
+  .game-container {
+    margin-top: 85px;
+    height: calc(100vh - 150px);
+    max-width: 100vw;
+  }
+  .game-container button {
+    width: 70vw;
+    min-width: 0;
+    font-size: 1.5rem;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .game-box {
+    padding: 3rem 2rem;
+    max-width: 95vw;
+  }
+}
