@@ -7,7 +7,10 @@ function Banner() {
 
     return (
         <header className="banner">
-            <h1 className="banner__title">OSRS-CL</h1>
+            <div className="banner__center">
+                <span className="banner__score">Score: 0</span>
+                <span className="banner__lives">Lives Remaining: 3</span>
+            </div>
         </header>
     )
 }

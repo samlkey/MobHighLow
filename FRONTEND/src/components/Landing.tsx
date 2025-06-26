@@ -1,7 +1,12 @@
 import '../css/Landing.css'
 import Footer from '../components/Footer'
 
-function Landing(){
+interface LandingProps {
+  onStart: () => void;
+  onAbout: () => void;
+}
+
+function Landing({ onStart, onAbout }: LandingProps) {
     return(
         <div className="landing__container">
             <div className="backdrop" />
@@ -12,8 +17,10 @@ function Landing(){
                         <h1>Welcome to the OSRS CombatLvl Guessing game!</h1>
                         <h2>Can you guess higher/lower for all the enemies in the game?</h2>
                         <div className="landing__main__button">
-                            <button value="Play">Play</button>
+                            <button value="Play" onClick={onStart}>Play</button>
                         </div>
+                        {/* Optionally add an About button:
+                        <button onClick={onAbout}>About</button> */}
                     </div>
                 </div>
                 <div className="landing__main__right">
