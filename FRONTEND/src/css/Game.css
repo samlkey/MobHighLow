@@ -51,7 +51,7 @@
 
 .game-box {
   background: #232526e5;
-  border: 2.5px solid #FFD700;
+  border: .5px solid rgba(255, 255, 255, 0.479);
   border-radius: 1.5rem;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.699);
   padding: 20rem 10rem;

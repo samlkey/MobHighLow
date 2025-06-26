@@ -7,7 +7,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    text-align: right;
     z-index: 100;
 }
 
@@ -38,7 +37,7 @@
     display: flex;
     align-items: center;
     margin-right: 3.5rem;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .footer__icon {
@@ -68,7 +67,7 @@
 
     .footer__icons {
         margin-right: 1.5rem;
-        gap: 1rem;
+        gap: .5rem;
     }
 
     .footer__icon {
