@@ -14,36 +14,33 @@ function Game({ onBack }: GameProps){
     return (
         <div className="game-container">
             <div className="backdrop" />
-            <Banner />
+            {/* <Banner /> */}
             <div className={`game__box${!loading ? ' game__box--with-divider' : ''}`}>
                 {loading ? (
                   <div className="game-throbber"></div>
                 ) : (
                   <>
                     <div className="gamebox__left">
-                        <h1 className="gamebox__title">GOBLIN</h1>
-                        <div className="gamebox__image-container">
-                            <img className="gamebox__image" src="/images/goblin.webp" alt="Goblin" />
-                        </div>
-                        <h1 className="gamebox__title">CL: ???</h1>
+                        <div className="gamebox__label">GOBLIN</div>
+                        <img className="gamebox__image" src="/images/goblin.webp" alt="Goblin" />
                     </div>
-                    <div className="gamebox__buttons">
-                        <div>
-                            <button>Higher</button>
-                            <button>Lower</button>
-                        </div>
+
+                    <div className="gamebox__or-circle">
+                        <span>OR</span>
                     </div>
+
+                    <div className="gamebox__score">
+                        <div className="score__current">Score: 0</div>
+                        <div className="score__high">High Score: 0</div>
+                    </div>
+
                     <div className="gamebox__right">
-                        <h1 className="gamebox__title">JAD</h1>
-                        <div className="gamebox__image-container">
-                            <img className="gamebox__image" src="/images/jad.webp" alt="Jad" />
-                        </div>
-                        <h1 className="gamebox__title">???</h1>
+                        <div className="gamebox__label">JAD</div>
+                        <img className="gamebox__image" src="/images/jad.webp" alt="Jad" />
                     </div>
                   </>
                 )}
             </div>
-            <Footer />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 # MobHighLow - Docker Setup
 
-![App Screenshot](./mdScreenshot.png)
+![Landing Screenshot](./mdScreenshot.png)
+![Game Screenshot](./gameScreenshot.png)
 
 This project contains both a backend Express.js API and a frontend Vite + React application, configured to run in Docker containers with hot reload enabled.
 

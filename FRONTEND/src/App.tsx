@@ -5,6 +5,7 @@ import './css/index.css'
 import Game from './components/Game'
 import Landing from './components/Landing'
 import { AnimatePresence, motion } from 'framer-motion'
+import Footer from './components/Footer'
 
 interface ViewContextType {
   view: string;
@@ -27,6 +28,7 @@ function App() {
   const [view, setView] = useState('landing') // 'landing', 'game', 'about'
 
   return (
+    <>
     <Router>
       <AnimatePresence mode="wait">
         {view === 'landing' && (
@@ -53,6 +55,8 @@ function App() {
         )}
       </AnimatePresence>
     </Router>
+    <Footer></Footer>
+    </>
   )
 }
 
