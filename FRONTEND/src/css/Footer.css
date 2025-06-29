@@ -8,6 +8,10 @@
     align-items: center;
     padding: 1rem 2rem;
     z-index: 100;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .footer__brand {
@@ -38,6 +42,23 @@
     align-items: center;
     margin-right: 3.5rem;
     gap: .5rem;
+}
+
+.footer__wiki-credit {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    flex: 1;
+}
+
+.footer__wiki-credit a {
+    color: #FFD700;
+    text-decoration: none;
+    transition: color 0.18s;
+}
+
+.footer__wiki-credit a:hover {
+    color: #FFA500;
 }
 
 .footer__icon {

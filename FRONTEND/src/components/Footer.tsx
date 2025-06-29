@@ -4,6 +4,9 @@ function Footer() {
     return (
         <footer className="footer">
             <a className="footer__brand" href="https://samkey.uk" target="_blank" rel="noopener noreferrer">samkey.uk</a>
+            <div className="footer__wiki-credit">
+                Powered by <a href="https://oldschool.runescape.wiki" target="_blank" rel="noopener noreferrer">OSRS Wiki</a>
+            </div>
             <div className="footer__icons">
                 <a target="_blank" href="https://www.linkedin.com/in/samkey726/">
                     <svg className="footer__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
