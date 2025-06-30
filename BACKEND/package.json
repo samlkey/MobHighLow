@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --legacy-watch index.js"
+    "dev": "nodemon --legacy-watch index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
