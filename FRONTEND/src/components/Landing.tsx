@@ -12,7 +12,7 @@ function Landing({ onStart, onAbout }: LandingProps) {
             <div className="backdrop" />
             <div className="landing__main">
                 <div>
-                    <img className="landing___main__logo" src="/images/icon.png"></img>
+                    <img className="landing___main__logo" src={`${import.meta.env.BASE_URL}images/icon.png`} />
                     <div className="landing__main__content">
                         <h1>Welcome to the OSRS CombatLvl Guessing game!</h1>
                         <h2>Can you guess higher/lower for all the enemies in the game?</h2>
@@ -25,7 +25,7 @@ function Landing({ onStart, onAbout }: LandingProps) {
                 </div>
                 <div className="landing__main__right">
                     <div className="landing__main__images">
-                        <img src="/images/mob.png"></img>
+                        <img src={`${import.meta.env.BASE_URL}images/mob.png`} />
                     </div>
                 </div>
             </div>
