@@ -245,11 +245,16 @@ function Game({ onBack }: GameProps){
                   <div className="game-throbber"></div>
                 ) : gameOver ? (
                   <div className="gameover-overlay">
-                    <div className="gameover-content">
-                      <div className="gameover-title">Wrong! Game Over</div>
-                      <div className="gameover-score">Final Score: {score}</div>
-                      <button className="gameover-btn" onClick={handlePlayAgain}>Play Again</button>
-                    </div>
+                    <motion.div
+                      className="gameover-content"
+                      initial={{ y: -200, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    >
+                        <h1 className="gameover-title">You Scored:</h1>
+                        <div className="gameover-score"><p>{score}</p></div>
+                        <button className="gameover-btn" onClick={handlePlayAgain}>Play Again</button>
+                    </motion.div>
                   </div>
                 ) : (
                   <>
