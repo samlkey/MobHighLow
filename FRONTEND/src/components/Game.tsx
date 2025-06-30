@@ -251,7 +251,7 @@ function Game({ onBack }: GameProps){
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     >
-                        <h1 className="gameover-title">You Scored:</h1>
+                        <h1 className="gameover-title">You Scored</h1>
                         <div className="gameover-score"><p>{score}</p></div>
                         <button className="gameover-btn" onClick={handlePlayAgain}>Play Again</button>
                     </motion.div>
