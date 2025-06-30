@@ -172,6 +172,20 @@ motion.div.gamebox__right {
   font-weight: normal;
 }
 
+.gamebox__picked-correct,
+.gamebox__picked-incorrect {
+  border: 6px solid;
+  box-sizing: border-box;
+  z-index: 2;
+  transition: border-color 0.3s, border-width 0.3s;
+}
+.gamebox__picked-correct {
+  border-color: #2ecc40 !important;
+}
+.gamebox__picked-incorrect {
+  border-color: #e74c3c !important;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -241,5 +255,13 @@ motion.div.gamebox__right {
     -ms-user-select: none;
     width: 5rem;
   }
+}
+
+.or-circle-icon {
+  color: #fff !important;
+  font-size: 2.8rem;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 

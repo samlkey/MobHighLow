@@ -2,13 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const ColorThief = require('colorthief');
+const pLimit = require('p-limit').default;
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-
 
 const fetchCombatLevel = async (name) => {
     const url = 'https://oldschool.runescape.wiki/api.php';
@@ -87,6 +87,15 @@ const fetchImage = async (name) => {
     return null;
 }
 
+// Fisher-Yates shuffle
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 //ENDPOINTS
 app.get("/api/combat-level", async (req, res) => {
     try {
@@ -147,6 +156,45 @@ app.get("/api/image", async (req, res) => {
         })
     }
 })
+
+app.get('/api/mobs', async (req, res) => {
+    try {
+        const url = 'https://oldschool.runescape.wiki/api.php';
+        let params = {
+            action: 'query',
+            list: 'categorymembers',
+            cmtitle: 'Category:Monsters',
+            cmlimit: 500, // Use the max allowed per request
+            format: 'json'
+        };
+        let allMembers = [];
+        let continueToken = null;
+
+        do {
+            if (continueToken) {
+                params.cmcontinue = continueToken;
+            } else {
+                delete params.cmcontinue;
+            }
+            const response = await axios.get(url, { params });
+            const members = response.data.query && response.data.query.categorymembers
+                ? response.data.query.categorymembers.map(m => m.title)
+                : [];
+            allMembers = allMembers.concat(members);
+            continueToken = response.data.continue ? response.data.continue.cmcontinue : null;
+        } while (continueToken);
+
+        // Shuffle and take a random 100
+        const random50 = shuffleArray(allMembers).slice(0, 100);
+        res.json(random50);
+    } catch (error) {
+        console.error('Error fetching or validating OSRS monster names:', error);
+        res.status(500).json({
+            error: 'Failed to fetch or validate OSRS monster names',
+            details: error.message
+        });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
