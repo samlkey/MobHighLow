@@ -40,22 +40,26 @@ function Game({ onBack }: GameProps){
     const [pickedSide, setPickedSide] = useState<null | 'left' | 'right'>(null);
     const [lastCorrect, setLastCorrect] = useState<boolean | null>(null);
 
+    // Define API base URL
+    const api = 'https://mobhighlowapi-gkfccbfvbac7exau.ukwest-01.azurewebsites.net/api';
+
     const fetchCombatLevel = async (mobName: string): Promise<number | null> => {
         try {
-            const response = await fetch(`http://localhost:3000/api/combat-level?mobName=${encodeURIComponent(mobName)}`);
+            const response = await fetch(`${api}/combat-level?mobName=${encodeURIComponent(mobName)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data: CombatLevelData = await response.json();
             return data.combatLevel;
         } catch (error) {
+            console.error(`Error fetching combat level for ${mobName}:`, error);
             return null;
         }
     };
 
     const fetchImage = async (mobName: string): Promise<{image: string, primaryColor: string} | null> => {
         try {
-            const response = await fetch(`http://localhost:3000/api/image?mobName=${encodeURIComponent(mobName)}`);
+            const response = await fetch(`${api}/image?mobName=${encodeURIComponent(mobName)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -140,7 +144,7 @@ function Game({ onBack }: GameProps){
 
     const handlePlayAgain = async () => {
         setLoading(true);
-        const res = await fetch('http://localhost:3000/api/mobs');
+        const res = await fetch(`${api}/mobs`);
         const data = await res.json();
         setMobList(data);
         startGame(data);
@@ -149,7 +153,7 @@ function Game({ onBack }: GameProps){
 
     // On mount, fetch the mob list
     useEffect(() => {
-        fetch('http://localhost:3000/api/mobs')
+        fetch(`${api}/mobs`)
             .then(res => res.json())
             .then(data => {
                 setMobList(data);
